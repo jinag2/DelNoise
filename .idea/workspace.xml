@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48c93cf4-90b2-4571-a8ca-d51272c9d912" name="Default" comment="" />
+    <list default="true" id="48c93cf4-90b2-4571-a8ca-d51272c9d912" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DelNoise.py" afterPath="$PROJECT_DIR$/DelNoise.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DelNoise$DelNoise.coverage" NAME="DelNoise Coverage Results" MODIFIED="1489652192731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DelNoise$DelNoise.coverage" NAME="DelNoise Coverage Results" MODIFIED="1489662584763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -21,8 +24,8 @@
       <file leaf-file-name="DelNoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DelNoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+            <state relative-caret-position="77">
+              <caret line="103" column="25" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
               <folding>
                 <element signature="e#12#22#0" expanded="true" />
               </folding>
@@ -33,48 +36,18 @@
       <file leaf-file-name="line.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/line.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="150" column="24" lean-forward="false" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
+            <state relative-caret-position="95">
+              <caret line="118" column="22" lean-forward="true" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/colors.py">
+      <file leaf-file-name="nested.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/descriptors/nested.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3405">
-              <caret line="250" column="18" lean-forward="false" selection-start-line="250" selection-start-column="18" selection-end-line="250" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="series_factory.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/chart/series_factory.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reference.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/chart/reference.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="1307">
+              <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -90,36 +63,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="worksheet.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/worksheet/worksheet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4560">
-              <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workbook.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/workbook/workbook.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="203" column="17" lean-forward="false" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ntpath.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python36/Lib/ntpath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3285">
-              <caret line="223" column="28" lean-forward="false" selection-start-line="223" selection-start-column="28" selection-end-line="223" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -128,6 +71,15 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>PRESET_COLORS</find>
+      <find>PeachPuff</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -453,15 +405,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28616685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28541225" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -488,6 +440,88 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DelNoise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/line.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="150" column="24" lean-forward="false" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/colors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3405">
+          <caret line="250" column="18" lean-forward="false" selection-start-line="250" selection-start-column="18" selection-end-line="250" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/chart/series_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/chart/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/pyperclip/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/worksheet/worksheet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4560">
+          <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/workbook/workbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="203" column="17" lean-forward="false" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3285">
+          <caret line="223" column="28" lean-forward="false" selection-start-line="223" selection-start-column="28" selection-end-line="223" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DelNoise.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -691,26 +725,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/descriptors/nested.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1307">
+          <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/colors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3405">
-          <caret line="250" column="18" lean-forward="false" selection-start-line="250" selection-start-column="18" selection-end-line="250" selection-end-column="18" />
+        <state relative-caret-position="25">
+          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/openpyxl/drawing/line.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="150" column="24" lean-forward="false" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
+        <state relative-caret-position="95">
+          <caret line="118" column="22" lean-forward="true" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DelNoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+        <state relative-caret-position="77">
+          <caret line="103" column="25" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
           <folding>
             <element signature="e#12#22#0" expanded="true" />
           </folding>
