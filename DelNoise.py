@@ -5,15 +5,11 @@ import sys
 import os
 import copy
 from openpyxl import Workbook
-from openpyxl.styles import Font
-from openpyxl.chart import (
-    ScatterChart,
-    Reference,
-    Series,
-)
-from openpyxl.drawing.fill import PatternFillProperties, ColorChoice
-from openpyxl.drawing.line import LineProperties
-from openpyxl.drawing.colors import ColorChoice
+from openpyxl import styles
+from openpyxl import chart
+from openpyxl import drawing
+from openpyxl.drawing import line
+from openpyxl.drawing import colors
 
 
 def main():
@@ -87,7 +83,7 @@ def create_excel(filename, data_list):
     
     wb = Workbook()
     sheet = wb.active
-    font12 = Font(size = 12)
+    font12 = styles.Font(size = 12)
 
     serial_title = ['Voltage']
     adc_num = len(data_list) - 1
@@ -100,24 +96,25 @@ def create_excel(filename, data_list):
             cell = sheet.cell(row = row + 2, column = col + 1, value = data_list[col][row])
             cell.font = font12
     
-    adc_chart = ScatterChart()
+    adc_chart = chart.ScatterChart()
     adc_chart.title = "Scatter Chart"
     adc_chart.style = 13
     adc_chart.y_axis.title = 'ADC'
     adc_chart.x_axis.title = 'Voltage'
 
-    xvalues = Reference(sheet, min_col = 1, min_row = 2, max_row = 100)
+    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = 100)
     for i in range(adc_num):
-        values = Reference(sheet, min_col = i+2, min_row = 2, max_row = 100)
-        series = Series(values, xvalues, title_from_data = True)
+        values = chart.Reference(sheet, min_col = i+2, min_row = 2, max_row = 100)
+        series = chart.Series(values, x_values, title_from_data = True)
         adc_chart.series.append(series)
 
-    series = adc_chart.series[0]
+    adc_series = adc_chart.series[0]
     # fill = PatternFillProperties(prst = "pct5")
     # fill.foreground = ColorChoice(prstClr = "red")
     # fill.background = ColorChoice(prstClr = "blue")
-    line_prop = LineProperties(solidFill = ColorChoice(prstClr = 'red'))
-    series.graphicalProperties.line = line_prop
+    
+    line_prop = drawing.line.LineProperties(solidFill = drawing.colors.ColorChoice(prstClr = 'red'))
+    adc_series.graphicalProperties.line = line_prop
     
     sheet.add_chart(adc_chart, "F5")
     
