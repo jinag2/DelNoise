@@ -9,7 +9,6 @@ from openpyxl import styles
 from openpyxl import chart
 from openpyxl import drawing
 from openpyxl.drawing import line
-from openpyxl.drawing import colors
 
 
 def main():
@@ -25,7 +24,7 @@ def main():
     # output_file = write_csv(csv_out)
     # print('Creat ' + output_file + ' OK!')
     
-    data_list = [vol_list, adc1_list, adc2_list]
+    data_list = [vol_list, adc1_list, adc2_list, adc3_list, adc4_list, adc5_list]
     excel_file = 'D:\\CVSROOT\\Python\\ADC1_out.xlsx'
     if create_excel(excel_file, data_list):
         print('Create ' + excel_file + ' succeeded!')
@@ -84,7 +83,7 @@ def create_excel(filename, data_list):
     wb = Workbook()
     sheet = wb.active
     font12 = styles.Font(size = 12)
-
+    
     serial_title = ['Voltage']
     adc_num = len(data_list) - 1
     for i in range(adc_num):
@@ -101,28 +100,22 @@ def create_excel(filename, data_list):
     adc_chart.style = 13
     adc_chart.y_axis.title = 'ADC'
     adc_chart.x_axis.title = 'Voltage'
+    adc_chart.height = 12
+    adc_chart.width = 16
 
-    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = 100)
+    max_item_num = 50
+    line_color = ('416FA6', 'A8423F', '86A44A', '6E548D', '3D96AE', 'DA8137', '8EA5CB')
+
+    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = max_item_num+1)
     for i in range(adc_num):
-        values = chart.Reference(sheet, min_col = i+2, min_row = 2, max_row = 100)
+        values = chart.Reference(sheet, min_col = i + 2, min_row = 1, max_row = max_item_num+1)
         series = chart.Series(values, x_values, title_from_data = True)
+        series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color[i])
+        series.graphicalProperties.line.width = 27432  # width in EMUs, EMU = pixel * 914400 / 96, assume pixel = 75
         adc_chart.series.append(series)
-
-    adc_series = adc_chart.series[0]
-    # fill = PatternFillProperties(prst = "pct5")
-    # fill.foreground = ColorChoice(prstClr = "red")
-    # fill.background = ColorChoice(prstClr = "blue")
     
-    line_prop = drawing.line.LineProperties(solidFill = drawing.colors.ColorChoice(prstClr = 'red'))
-    adc_series.graphicalProperties.line = line_prop
-    
-    sheet.add_chart(adc_chart, "F5")
-    
-    # serial_obj = openpyxl.chart.series_factory.SeriesFactory(data, title='First series of values')
-    # chart_obj = openpyxl.chart.BarChart()
-    # chart_obj.title = 'My Chart'
-    # chart_obj.append(serial_obj)
-    # sheet.add_chart(chart_obj, 'C5')
+    sheet.add_chart(adc_chart, "I5")
+    sheet.column_dimensions['A'].width = 11
     
     wb.save(filename)
     return True
