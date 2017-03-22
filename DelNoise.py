@@ -130,7 +130,8 @@ def generate_excel_file(csv_filename):
     return filename
 
 
-def create_scatter_chart(sheet, title, y_axis_title, x_axis_title, start_item, max_item_num, serials_num, line_color_list):
+def create_scatter_chart(sheet, title, y_axis_title, x_axis_title,
+                         start_item, item_size, serials_num, line_color_list):
     adc_chart = chart.ScatterChart()
     adc_chart.title = title
     adc_chart.style = 13
@@ -139,10 +140,13 @@ def create_scatter_chart(sheet, title, y_axis_title, x_axis_title, start_item, m
     adc_chart.height = 12
     adc_chart.width = 16
 
-    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = max_item_num+1)
+    min_row_idx = start_item + 1
+    max_row_idx = min_row_idx + item_size - 1
+    x_values = chart.Reference(sheet, min_col = 1, min_row = min_row_idx, max_row = max_row_idx)
     for i in range(serials_num):
-        values = chart.Reference(sheet, min_col = i + 2, min_row = 2, max_row = max_item_num+1)
-        series = chart.Series(values, x_values, title = sheet.cell(row = 1, column = i + 2).value)
+        column_idex = i + 2
+        values = chart.Reference(sheet, min_col = column_idex, min_row = min_row_idx, max_row =  max_row_idx)
+        series = chart.Series(values, x_values, title = sheet.cell(row = 1, column = column_idex).value)
         if i == serials_num - 1:
             series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color_list[serials_num-1])
         else:
@@ -181,7 +185,7 @@ def create_excel(filename, data_list):
 
     line_color_list.append(MEDIAN_COLOR)
     
-    adc_chart = create_scatter_chart(sheet, "Scatter Chart", 'ADC', 'Voltage', 1, 10, serials_num, line_color_list)
+    adc_chart = create_scatter_chart(sheet, "Scatter Chart", 'ADC', 'Voltage', 1, 200, serials_num, line_color_list)
     sheet.add_chart(adc_chart, "I5")
     
     try:
