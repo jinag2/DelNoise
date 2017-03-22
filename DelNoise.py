@@ -12,6 +12,11 @@ from openpyxl.drawing import line
 
 
 MAX_ADC_NUM = 10
+LINE_COLOR = ('416FA6', 'A8423F', '86A44A', '6E548D', '3D96AE',
+              'B8860B', 'E9967A', 'DA8137', '8EA5CB', '808000',
+              'A0522D', '2E8B57', 'B0E0E6', '000080', 'FFDEAD')
+MEDIAN_COLOR = 'FF0000'
+FILTER_COLOR = '0000FF'
 
 
 def main():
@@ -38,7 +43,7 @@ def main():
     # print('Creat ' + output_file + ' OK!')
 
     data_list.append(cal_median(total_adc_list1))
-    excel_file = generate_excel_file(sys.argv[1]) #'D:\\CVSROOT\\Python\\ADC1_out.xlsx'
+    excel_file = generate_excel_file(sys.argv[1])
     if create_excel(excel_file, data_list):
         print('Create ' + excel_file + ' succeeded!')
     else:
@@ -124,6 +129,29 @@ def generate_excel_file(csv_filename):
     filename = input_file_tuple[0] + '\\' + file_tuple[0] + '_out.xlsx'
     return filename
 
+
+def create_scatter_chart(sheet, title, y_axis_title, x_axis_title, start_item, max_item_num, serials_num, line_color_list):
+    adc_chart = chart.ScatterChart()
+    adc_chart.title = title
+    adc_chart.style = 13
+    adc_chart.y_axis.title = y_axis_title
+    adc_chart.x_axis.title = x_axis_title
+    adc_chart.height = 12
+    adc_chart.width = 16
+
+    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = max_item_num+1)
+    for i in range(serials_num):
+        values = chart.Reference(sheet, min_col = i + 2, min_row = 2, max_row = max_item_num+1)
+        series = chart.Series(values, x_values, title = sheet.cell(row = 1, column = i + 2).value)
+        if i == serials_num - 1:
+            series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color_list[serials_num-1])
+        else:
+            series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color_list[i])
+        series.graphicalProperties.line.width = 27432  # width in EMUs, EMU = pixel * 914400 / 96, assume pixel = 75
+        adc_chart.series.append(series)
+        
+    return adc_chart
+
     
 def create_excel(filename, data_list):
     if len(data_list) < 2:
@@ -147,31 +175,13 @@ def create_excel(filename, data_list):
             cell = sheet.cell(row = row_idx + 2, column = col_idx + 1, value = data_list[col_idx][row_idx])
             cell.font = font12
     
-    adc_chart = chart.ScatterChart()
-    adc_chart.title = "Scatter Chart"
-    adc_chart.style = 13
-    adc_chart.y_axis.title = 'ADC'
-    adc_chart.x_axis.title = 'Voltage'
-    adc_chart.height = 12
-    adc_chart.width = 16
+    line_color_list = []
+    for i in range(adc_num):
+        line_color_list.append(LINE_COLOR[i])
 
-    max_item_num = 200
-    line_color = ('416FA6', 'A8423F', '86A44A', '6E548D', '3D96AE',
-                  'B8860B', 'E9967A', 'DA8137', '8EA5CB', '808000',
-                  'A0522D', '2E8B57', 'B0E0E6', '000080', 'FFDEAD',
-                  'FF0000')
-
-    x_values = chart.Reference(sheet, min_col = 1, min_row = 2, max_row = max_item_num+1)
-    for i in range(serials_num):
-        values = chart.Reference(sheet, min_col = i + 2, min_row = 1, max_row = max_item_num+1)
-        series = chart.Series(values, x_values, title_from_data = True)
-        if i == serials_num - 1:
-            series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color[15])
-        else:
-            series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color[i])
-        series.graphicalProperties.line.width = 27432  # width in EMUs, EMU = pixel * 914400 / 96, assume pixel = 75
-        adc_chart.series.append(series)
+    line_color_list.append(MEDIAN_COLOR)
     
+    adc_chart = create_scatter_chart(sheet, "Scatter Chart", 'ADC', 'Voltage', 1, 10, serials_num, line_color_list)
     sheet.add_chart(adc_chart, "I5")
     
     try:
