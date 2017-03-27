@@ -11,7 +11,7 @@ from openpyxl import drawing
 from openpyxl.drawing import line
 
 
-MAX_ADC_NUM = 10
+MAX_ADC_NUM = 15
 CUT_RANGE = int(MAX_ADC_NUM / 3)
 LINE_COLOR = ('416FA6', 'A8423F', '86A44A', '6E548D', '3D96AE',
               'B8860B', 'E9967A', 'DA8137', '8EA5CB', '808000',
@@ -152,7 +152,7 @@ def generate_excel_file(csv_filename):
     return filename
 
 
-def create_scatter_chart(sheet, title, y_axis_title, x_axis_title,
+def create_scatter_chart(sheet, title, y_axis_title, x_axis_title, column_list,
                          start_item, item_size, serials_num, line_color_list):
     adc_chart = chart.ScatterChart()
     adc_chart.title = title
@@ -166,9 +166,8 @@ def create_scatter_chart(sheet, title, y_axis_title, x_axis_title,
     max_row_idx = min_row_idx + item_size - 1
     x_values = chart.Reference(sheet, min_col = 1, min_row = min_row_idx, max_row = max_row_idx)
     for i in range(serials_num):
-        column_idx = i + 2
-        values = chart.Reference(sheet, min_col = column_idx, min_row = min_row_idx, max_row = max_row_idx)
-        series = chart.Series(values, x_values, title = sheet.cell(row = 1, column = column_idx).value)
+        values = chart.Reference(sheet, min_col = column_list[i], min_row = min_row_idx, max_row = max_row_idx)
+        series = chart.Series(values, x_values, title = sheet.cell(row = 1, column = column_list[i]).value)
         if i == serials_num - 1:
             series.graphicalProperties.line = drawing.line.LineProperties(solidFill = line_color_list[serials_num-1])
         else:
@@ -214,34 +213,42 @@ def create_excel(filename, voltage_list, adc_lists, median_list, average_lists):
 
     for col_idx in range(len(average_lists)):
         for row_idx in range(len(average_lists[col_idx])):
-            cell = data_sheet.cell(row = row_idx + 2, column = col_idx + adc_num + 3, value = round(average_lists[col_idx][row_idx]))
+            cell = data_sheet.cell(row = row_idx + 2, column = col_idx + adc_num + 3,
+                                   value = round(average_lists[col_idx][row_idx]))
             cell.font = font12
             
     chart_sheet = wb.create_sheet(index = 1, title = "Chart")
+    median_column = adc_num + 2
 
     # ADC chart
+    column_list = []
     line_color_list = []
     for i in range(adc_num):
         line_color_list.append(LINE_COLOR[i])
+        column_list.append(i + 2)
 
     line_color_list.append(MEDIAN_COLOR)
-    
+    column_list.append(median_column)
+
     serials_num = adc_num + 1
-    adc_chart = create_scatter_chart(data_sheet, "ADC Chart", 'ADC', 'Voltage',
+    adc_chart = create_scatter_chart(data_sheet, "ADC Chart", 'ADC', 'Voltage', column_list,
                                      1, 200, serials_num, line_color_list)
-    chart_sheet.add_chart(adc_chart, "B1")
+    chart_sheet.add_chart(adc_chart, "B2")
 
     # Average chart
+    column_list = []
     line_color_list = []
     for i in range(average_num):
         line_color_list.append(LINE_COLOR[i])
+        column_list.append(median_column + i + 1)
 
     line_color_list.append(MEDIAN_COLOR)
+    column_list.append(median_column)
 
     serials_num = average_num + 1
-    adc_chart = create_scatter_chart(data_sheet, "Average Chart", 'ADC', 'Voltage',
+    adc_chart = create_scatter_chart(data_sheet, "Average Chart", 'ADC', 'Voltage', column_list,
                                      1, 200, serials_num, line_color_list)
-    chart_sheet.add_chart(adc_chart, "L1")
+    chart_sheet.add_chart(adc_chart, "L2")
 
     try:
         wb.save(filename)
